@@ -1,14 +1,7 @@
 package inf101.games.life;
 
 import inf101.games.IGame;
-import inf101.games.life.brett.Acorn;
-import inf101.games.life.brett.Beacon;
-import inf101.games.life.brett.Desert;
-import inf101.games.life.brett.Glider;
-import inf101.games.life.brett.IPattern;
-import inf101.games.life.brett.LightweightSpaceship;
-import inf101.games.life.brett.Pulsar;
-import inf101.games.life.brett.Toad;
+import inf101.games.life.brett.*;
 import inf101.tabell2d.ITabell2D;
 import inf101.tabell2d.SmultringTabell;
 
@@ -20,8 +13,8 @@ public class Life implements IGame {
 	private ITabell2D<Boolean> brett;
 	private int bredde;
 	private int høyde;
-	private final String dead = "life/images/dead";
-	private final String alive = "life/images/alive";
+	private static final String dead = "life/images/dead";
+	private static final String alive = "life/images/alive";
 	private final List<IPattern> patterns = new ArrayList<IPattern>();
 	private final Random random = new Random();
 	private String pattern = "Random";
@@ -33,6 +26,7 @@ public class Life implements IGame {
 		patterns.add(new Desert());
 		patterns.add(new Toad());
 		patterns.add(new Beacon());
+		patterns.add(new QuadProp());
 		patterns.add(new Glider());
 		patterns.add(new LightweightSpaceship());
 		patterns.add(new Pulsar());

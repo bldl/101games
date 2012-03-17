@@ -33,5 +33,5 @@ public interface ITabell2D<E> {
 	/**
 	 * @return En kopi av tabellen, med de samme elementene
 	 */
-	public abstract ITabell2D<E> clone();
+	public abstract ITabell2D<E> copy();
 }

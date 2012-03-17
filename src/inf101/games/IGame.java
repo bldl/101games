@@ -5,10 +5,10 @@ import java.util.List;
 /**
  * Interface for brettspill som passer til brettspill-GUIen
  * 
- * Spillene er ment å bli kontrollert av GUI-en, som kaller metodene definert
+ * Spillene er ment å bli kontrollert av GameGUI-en, som kaller metodene definert
  * under basert på knappene som brukerne trykker på.
  * 
- * En del av metodene styrer oppsettet til GUI-en ved å, f.eks., velge hvor vidt 
+ * En del av metodene styrer oppsettet til GameGUI-en ved å, f.eks., velge hvor vidt 
  * enkelte knapper skal være skrudd på, eller hvilke menyvalg som finnes.
  * 
  * @author Anya Helene Bagge
@@ -62,14 +62,14 @@ public interface IGame {
 	void timeStep();
 	
 	/**
-	 * Styrer tilgjengelige knapper i GUI-en.
+	 * Styrer tilgjengelige knapper i GameGUI-en.
 	 * 
 	 * @return True hvis spillet skal ha "Neste Steg"-knapp
 	 */
 	boolean hasStepButton();
 	
 	/**
-	 * Styrer tilgjengelige knapper i GUI-en.
+	 * Styrer tilgjengelige knapper i GameGUI-en.
 	 * 
 	 * @return True hvis spillet skal ha start / stopp knapper
 	 */
@@ -106,7 +106,7 @@ public interface IGame {
 	List<String> getMenuChoices();
 	
 	/**
-	 * Kalles når spilleren har gjort et menyvalg i GUI-en.
+	 * Kalles når spilleren har gjort et menyvalg i GameGUI-en.
 	 * 
 	 * @param s En streng som tidligere er returnert fra getMenuChoices()
 	 * @throws UnsupportedOperationException hvis spillet ikke har sin egen meny

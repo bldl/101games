@@ -14,6 +14,7 @@ public class RektangelTabell<E> implements ITabell2D<E> {
 	private E[] data;
 	private int w, h;
 	
+	@SuppressWarnings("unchecked")
 	public RektangelTabell(int bredde, int høyde) {
 		w = bredde;
 		h = høyde;
@@ -42,14 +43,14 @@ public class RektangelTabell<E> implements ITabell2D<E> {
 	}
 	
 	@Override
-	public RektangelTabell<E> clone() {
+	public RektangelTabell<E> copy() {
 		RektangelTabell<E> tab = new RektangelTabell<E>(w, h);
 		for(int i = 0; i < w*h; i++)
 			tab.data[i] = data[i];
 		return tab;
 	}
 
-	protected void clone(RektangelTabell<E> tab) {
+	protected void copy(RektangelTabell<E> tab) {
 		assert tab.bredde() == w;
 		assert tab.høyde() == h;
 		for(int i = 0; i < w*h; i++)
@@ -73,6 +74,7 @@ public class RektangelTabell<E> implements ITabell2D<E> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		@SuppressWarnings("unchecked")
 		RektangelTabell<E> other = (RektangelTabell<E>) obj;
 		if (!Arrays.equals(data, other.data))
 			return false;

@@ -1,5 +1,7 @@
 package inf101.games.gui;
 
+import inf101.games.Main101Games;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,7 +38,7 @@ public class ImageLoader {
 			return images.get(fileName);
 		for(String imagePath : imagePaths) {
 			for(String extension : extensions) {
-				URL url = ImageLoader.class.getResource(imagePath + fileName + extension);
+				URL url = Main101Games.class.getResource(imagePath + fileName + extension);
 				if(url != null) {
 					ImageIcon icon = new ImageIcon(url);
 					images.put(fileName, icon);

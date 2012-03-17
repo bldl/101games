@@ -10,9 +10,9 @@ public class SmultringTabell<E> extends RektangelTabell<E> {
 		super(bredde, høyde);
 	}
 
-	public SmultringTabell<E> clone() {
+	public SmultringTabell<E> copy() {
 		SmultringTabell<E> tab = new SmultringTabell<E>(bredde(), høyde());
-		clone(tab);
+		copy(tab);
 		return tab;
 	}
 

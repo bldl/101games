@@ -4,6 +4,7 @@ import inf101.games.IGame;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -18,11 +19,8 @@ import java.util.List;
  * @author Anya Helene Bagge
  *
  */
-public class GUI extends JFrame implements ActionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class GameGUI extends JPanel implements ActionListener {
+	private static final long serialVersionUID = -2030937455049555857L;
 	/**
 	 * Her ligger cellene
 	 */
@@ -59,23 +57,19 @@ public class GUI extends JFrame implements ActionListener {
 	private JComboBox gameMenu;
 	private static final String[] boardSizes = new String[] {"10x10", "12x12", "15x15", "20x15", "30x20"}; 
 
-	public GUI(IGame spill) {
+	public GameGUI(IGame spill) {
 		this(Arrays.asList(spill));
 	}
 	/**
-	 * Oppretter en ny games-GUI
+	 * Oppretter en ny games-GameGUI
 	 * @param games Spillet som skal kontrolleres
 	 */
-	public GUI(List<IGame> spill) {
+	public GameGUI(List<IGame> spill) {
 		super();
-
+		setLayout(new BorderLayout());
+		
 		this.games = new ArrayList<IGame>(spill);
-		Collections.sort(games, new Comparator<IGame>() {
-			@Override
-			public int compare(IGame arg0, IGame arg1) {
-				return arg0.getName().compareTo(arg1.getName());
-			}
-		});
+		Collections.sort(games, new GameComparator());
 		this.selectedGame = spill.get(0);
 
 		String[] gameNames = new String[games.size()];
@@ -85,7 +79,7 @@ public class GUI extends JFrame implements ActionListener {
 		gameSelection = new JComboBox(gameNames);
 		gameSelection.setSelectedItem(selectedGame.getName());
 
-		timer = new javax.swing.Timer(100, this);  // vekk oss hvert 500 millisekund
+		timer = new javax.swing.Timer(150, this);  // vekk oss hvert 500 millisekund
 
 		JPanel dummyKontrollPanel = new JPanel();
 		dummyKontrollPanel.setLayout(new BorderLayout());
@@ -121,15 +115,12 @@ public class GUI extends JFrame implements ActionListener {
 		add(hovedPanel,BorderLayout.WEST);
 		add(statusPanel, BorderLayout.SOUTH);
 		add(dummyPanel, BorderLayout.CENTER);
-
-		setTitle(selectedGame.getName());
-
+	}
+	
+	public void initialize() {
 		initializeControl();
 		initializeBoard();
-
-
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 	}
 
 	private void initializeControl() {
@@ -208,12 +199,30 @@ public class GUI extends JFrame implements ActionListener {
 		hovedPanel.add(new CoordLabel(""));
 		for (int x = 0; x < width; x++)
 			hovedPanel.add(new CoordLabel(x));
-
 		oppdater();
-		pack();
-
+		updateFrame();
 	}
 
+	private void updateFrame() {
+		Container parent = getParent();
+		while(parent != null) {
+		if(parent instanceof JFrame) {
+			JFrame frame = (JFrame)parent;
+			frame.setTitle(selectedGame.getName());
+			frame.pack();
+			return;
+		}
+		else if(parent instanceof JApplet) {
+			JApplet applet = (JApplet)parent;
+			applet.setName(selectedGame.getName());
+			applet.resize(getPreferredSize());
+			applet.validate();
+			return;
+		}
+		parent = parent.getParent();
+		}
+
+	}
 	/**
 	 * Går gjennom og oppdaterer grafikken til alle brikkene, og viser oppdatert informasjon i displayet
 	 */
@@ -255,6 +264,7 @@ public class GUI extends JFrame implements ActionListener {
 		else if(e.getSource() == timer) {
 			selectedGame.timeStep();
 			oppdater();
+			timer.restart();
 		}
 		else if(e.getSource() == sizes) {
 			String size = (String)sizes.getSelectedItem();
@@ -283,5 +293,15 @@ public class GUI extends JFrame implements ActionListener {
 			throw new IllegalArgumentException("Should be on WxH: " + size);
 		return new Point(Integer.valueOf(split[0]), Integer.valueOf(split[1]));
 	}
+
+	private static final class GameComparator implements Comparator<IGame>, Serializable {
+		private static final long serialVersionUID = 6647481037039732094L;
+
+		@Override
+		public int compare(IGame arg0, IGame arg1) {
+			return arg0.getName().compareTo(arg1.getName());
+		}
+	}
+
 }
 

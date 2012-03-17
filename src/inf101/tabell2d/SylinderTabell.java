@@ -10,9 +10,9 @@ public class SylinderTabell<E> extends RektangelTabell<E> {
 		super(bredde, høyde);
 	}
 
-	public SylinderTabell<E> clone() {
+	public SylinderTabell<E> copy() {
 		SylinderTabell<E> tab = new SylinderTabell<E>(bredde(), høyde());
-		clone(tab);
+		copy(tab);
 		return tab;
 	}
 
