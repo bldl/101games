@@ -1,8 +1,6 @@
 package inf101.games.life;
 
 import inf101.games.IGame;
-import inf101.games.ITabell2D;
-import inf101.games.Tabell2D;
 import inf101.games.life.brett.Acorn;
 import inf101.games.life.brett.Beacon;
 import inf101.games.life.brett.Desert;
@@ -11,6 +9,8 @@ import inf101.games.life.brett.IPattern;
 import inf101.games.life.brett.LightweightSpaceship;
 import inf101.games.life.brett.Pulsar;
 import inf101.games.life.brett.Toad;
+import inf101.tabell2d.ITabell2D;
+import inf101.tabell2d.SmultringTabell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ public class Life implements IGame {
 	@Override
 	public void newGame() {
 		if(pattern.equals("Random")) {
-			brett = new Tabell2D<Boolean>(bredde, høyde);
+			brett = new SmultringTabell<Boolean>(bredde, høyde);
 			for(int x = 0; x < bredde; x++)
 				for(int y = 0; y < høyde; y++)
 					brett.sett(x, y, random.nextInt(5) == 0);
@@ -54,7 +54,7 @@ public class Life implements IGame {
 						bredde = p.getWidth();
 					if(høyde < p.getHeight())
 						høyde = p.getHeight();
-					brett = new Tabell2D<Boolean>(bredde, høyde);
+					brett = new SmultringTabell<Boolean>(bredde, høyde);
 
 					for(int x = 0; x < bredde; x++)
 						for(int y = 0; y < høyde; y++)
@@ -111,7 +111,7 @@ public class Life implements IGame {
 	 */
 	@Override
 	public void timeStep(){
-		ITabell2D<Boolean> nyttBrett = new Tabell2D<Boolean>(bredde, høyde);
+		ITabell2D<Boolean> nyttBrett = new SmultringTabell<Boolean>(bredde, høyde);
 		for(int m=0; m < bredde; m++){
 			for(int n=0; n < høyde; n++){
 				nyttBrett.sett(m, n, false);
@@ -153,7 +153,7 @@ public class Life implements IGame {
 		if(bredde == nyBredde && høyde == nyHøyde)
 			return;
 
-		ITabell2D<Boolean> nyttBrett = new Tabell2D<Boolean>(nyBredde, nyHøyde);
+		ITabell2D<Boolean> nyttBrett = new SmultringTabell<Boolean>(nyBredde, nyHøyde);
 		for(int x = 0; x < nyBredde; x++)
 			for(int y = 0; y < nyHøyde; y++)
 				nyttBrett.sett(x, y, Boolean.FALSE);

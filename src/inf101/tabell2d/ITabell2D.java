@@ -1,10 +1,9 @@
-package inf101.games;
+package inf101.tabell2d;
 
 /**
  * Interface for todimensjonale tabeller.
  
  * @param <E> Typen til elementene
- * @author Anya Helene Bagge
  */
 public interface ITabell2D<E> {
 	/**
@@ -35,10 +34,4 @@ public interface ITabell2D<E> {
 	 * @return En kopi av tabellen, med de samme elementene
 	 */
 	public abstract ITabell2D<E> clone();
-	
-	/**
-	 * 
-	 * @return Totalt antall celler i tabellen
-	 */
-	public abstract int antall();
 }

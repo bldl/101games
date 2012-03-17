@@ -1,7 +1,7 @@
 package inf101.games.life.brett;
 
-import inf101.games.ITabell2D;
-import inf101.games.Tabell2D;
+import inf101.tabell2d.ITabell2D;
+import inf101.tabell2d.RektangelTabell;
 
 /**
  * Superklasse for Life mønster
@@ -29,7 +29,7 @@ public class AbstractPattern implements IPattern {
 	AbstractPattern(String[] pattern, String name) {
 		int høyde = pattern.length;
 		int bredde = pattern[0].length();
-		this.pattern = new Tabell2D<Boolean>(bredde, høyde);
+		this.pattern = new RektangelTabell<Boolean>(bredde, høyde);
 		for(int y = 0; y < høyde; y++) {
 			for(int x = 0; x < bredde; x++) {
 				this.pattern.sett(x, y, pattern[y].charAt(x) != ' ');
