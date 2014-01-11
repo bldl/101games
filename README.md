@@ -20,3 +20,8 @@ of ```Main101Games```. For example:
          }
 
          
+## Authors
+
+ * Anya Helene Bagge, University of Bergen
+ * Anna Eilertsen, University of Bergen
+ * Alexandre Vivmond, University of Bergen
