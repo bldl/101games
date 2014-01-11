@@ -10,6 +10,7 @@ public class SylinderTabell<E> extends RektangelTabell<E> {
 		super(bredde, høyde);
 	}
 
+	@Override
 	public SylinderTabell<E> copy() {
 		SylinderTabell<E> tab = new SylinderTabell<E>(bredde(), høyde());
 		copy(tab);

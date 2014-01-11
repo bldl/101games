@@ -52,9 +52,9 @@ public class GameGUI extends JPanel implements ActionListener {
 	 * Vekker oss hvert halve sekund
 	 */
 	private final javax.swing.Timer timer;
-	private JComboBox sizes;
-	private final JComboBox gameSelection;
-	private JComboBox gameMenu;
+	private JComboBox<String> sizes;
+	private final JComboBox<String> gameSelection;
+	private JComboBox<String> gameMenu;
 	private static final String[] boardSizes = new String[] {"10x10", "12x12", "15x15", "20x15", "30x20"}; 
 
 	public GameGUI(IGame spill) {
@@ -76,7 +76,7 @@ public class GameGUI extends JPanel implements ActionListener {
 		int i = 0;
 		for(IGame g : games)
 			gameNames[i++] = g.getName();
-		gameSelection = new JComboBox(gameNames);
+		gameSelection = new JComboBox<String>(gameNames);
 		gameSelection.setSelectedItem(selectedGame.getName());
 
 		timer = new javax.swing.Timer(150, this);  // vekk oss hvert 500 millisekund
@@ -142,7 +142,7 @@ public class GameGUI extends JPanel implements ActionListener {
 		Collections.sort(bSizes);
 		if(sizes != null) 
 			sizes.removeActionListener(this);
-		sizes = new JComboBox(bSizes.toArray(new String[bSizes.size()]));
+		sizes = new JComboBox<String>(bSizes.toArray(new String[bSizes.size()]));
 		sizes.setSelectedItem(size);
 		sizes.addActionListener(this);
 
@@ -165,7 +165,7 @@ public class GameGUI extends JPanel implements ActionListener {
 		}
 		List<String> choices = selectedGame.getMenuChoices();
 		if(choices != null) {
-			gameMenu = new JComboBox(choices.toArray(new String[choices.size()]));
+			gameMenu = new JComboBox<String>(choices.toArray(new String[choices.size()]));
 			gameMenu.addActionListener(this);
 			kontrollPanel.add(gameMenu);
 		}

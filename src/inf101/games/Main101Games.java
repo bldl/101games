@@ -13,6 +13,7 @@ import javax.swing.SwingUtilities;
 public class Main101Games extends JApplet {
 	private static final long serialVersionUID = -5830018712727696869L;
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		new GUIFrame(startGame());
 	}
@@ -22,10 +23,12 @@ public class Main101Games extends JApplet {
 		return new GameGUI(Arrays.asList(life)); 
 	}
 	
+	@Override
 	public void init() {
 		final JApplet applet = this;
 		try {
 			SwingUtilities.invokeAndWait(new Runnable() {
+				@Override
 				public void run() {
 					GameGUI game = startGame();
 					applet.add(game);

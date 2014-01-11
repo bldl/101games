@@ -44,6 +44,7 @@ class ImagePanel extends JPanel {
 		}
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if(img == null)
@@ -55,11 +56,11 @@ class ImagePanel extends JPanel {
 		int ix = 0, iy = 0;
 		if(iw-gw > 20 || ih-gh > 20) {
 			if((double)gw/gh > (double)iw/ih) {
-				ih = (int)((double)iw*(double)gh/(double)gw);
+				ih = (int)((double)iw*(double)gh/gw);
 				iy = (h-ih)/2;
 			}
 			else {
-				iw = (int)((double)ih*(double)gw/(double)gh);
+				iw = (int)((double)ih*(double)gw/gh);
 				ix = (w-iw)/2;
 			}
 		}

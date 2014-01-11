@@ -10,6 +10,7 @@ public class SmultringTabell<E> extends RektangelTabell<E> {
 		super(bredde, høyde);
 	}
 
+	@Override
 	public SmultringTabell<E> copy() {
 		SmultringTabell<E> tab = new SmultringTabell<E>(bredde(), høyde());
 		copy(tab);
