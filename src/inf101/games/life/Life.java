@@ -2,15 +2,16 @@ package inf101.games.life;
 
 import inf101.games.IGame;
 import inf101.games.life.brett.*;
-import inf101.tabell2d.ITabell2D;
-import inf101.tabell2d.SmultringTabell;
+import inf101.grid.IGrid2D;
+import inf101.grid.MyGrid2D;
+import inf101.grid.Torus;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Life implements IGame {
-	private ITabell2D<Boolean> brett;
+	private IGrid2D<Boolean> brett;
 	private int bredde;
 	private int høyde;
 	private static final String dead = "life/images/dead";
@@ -36,10 +37,10 @@ public class Life implements IGame {
 	@Override
 	public void newGame() {
 		if(pattern.equals("Random")) {
-			brett = new SmultringTabell<Boolean>(bredde, høyde);
+			brett = new MyGrid2D<Boolean>(new Torus(bredde, høyde));
 			for(int x = 0; x < bredde; x++)
 				for(int y = 0; y < høyde; y++)
-					brett.sett(x, y, random.nextInt(5) == 0);
+					brett.set(x, y, random.nextInt(5) == 0);
 		}
 		else {
 			for(IPattern p : patterns) {
@@ -48,18 +49,18 @@ public class Life implements IGame {
 						bredde = p.getWidth();
 					if(høyde < p.getHeight())
 						høyde = p.getHeight();
-					brett = new SmultringTabell<Boolean>(bredde, høyde);
+					brett = new MyGrid2D<Boolean>(new Torus(bredde, høyde));
 
 					for(int x = 0; x < bredde; x++)
 						for(int y = 0; y < høyde; y++)
-							brett.sett(x, y, Boolean.FALSE);
+							brett.set(x, y, Boolean.FALSE);
 
 					int xOffset = (bredde - p.getWidth()) / 2;
 					int yOffset = (høyde - p.getHeight()) / 2;
 
 					for(int x = 0; x < p.getWidth(); x++)
 						for(int y = 0; y < p.getHeight(); y++)
-							brett.sett(xOffset + x, yOffset + y, p.isAlive(x, y));
+							brett.set(xOffset + x, yOffset + y, p.isAlive(x, y));
 					return;
 				}
 			}
@@ -78,21 +79,21 @@ public class Life implements IGame {
 	 */
 	public int naboer(int x, int y){
 		int ant=0;
-		if(brett.hent(x-1, y))
+		if(brett.get(x-1, y))
 			ant++;
-		if(brett.hent(x-1, y-1))
+		if(brett.get(x-1, y-1))
 			ant++;
-		if(brett.hent(x-1, y+1))
+		if(brett.get(x-1, y+1))
 			ant++;
-		if(brett.hent(x, y-1))
+		if(brett.get(x, y-1))
 			ant++;
-		if(brett.hent(x, y+1))
+		if(brett.get(x, y+1))
 			ant++;
-		if(brett.hent(x+1, y-1))
+		if(brett.get(x+1, y-1))
 			ant++;
-		if(brett.hent(x+1, y))
+		if(brett.get(x+1, y))
 			ant++;
-		if(brett.hent(x+1, y+1))
+		if(brett.get(x+1, y+1))
 			ant++;
 		return ant;
 	}
@@ -105,19 +106,19 @@ public class Life implements IGame {
 	 */
 	@Override
 	public void timeStep(){
-		ITabell2D<Boolean> nyttBrett = new SmultringTabell<Boolean>(bredde, høyde);
+		IGrid2D<Boolean> nyttBrett = new MyGrid2D<Boolean>(new Torus(bredde, høyde));
 		for(int m=0; m < bredde; m++){
 			for(int n=0; n < høyde; n++){
-				nyttBrett.sett(m, n, false);
+				nyttBrett.set(m, n, false);
 			}
 		}
 		for(int i=0; i < bredde; i++){
 			for (int j=0; j < høyde; j++){
 				int k=naboer(i,j);
-				if ((k==2 || k==3) && brett.hent(i, j))
-					nyttBrett.sett(i, j, true);
-				if (k==3 && !(brett.hent(i, j)))
-					nyttBrett.sett(i, j, true);
+				if ((k==2 || k==3) && brett.get(i, j))
+					nyttBrett.set(i, j, true);
+				if (k==3 && !(brett.get(i, j)))
+					nyttBrett.set(i, j, true);
 			}
 		}
 		brett = nyttBrett;
@@ -135,10 +136,10 @@ public class Life implements IGame {
 	 */
 	@Override
 	public void select(int x, int y){
-		if (!(brett.hent(x, y)))
-			brett.sett(x, y, true);
-		else if(brett.hent(x, y))
-			brett.sett(x, y, false);
+		if (!(brett.get(x, y)))
+			brett.set(x, y, true);
+		else if(brett.get(x, y))
+			brett.set(x, y, false);
 	}
 
 
@@ -147,14 +148,14 @@ public class Life implements IGame {
 		if(bredde == nyBredde && høyde == nyHøyde)
 			return;
 
-		ITabell2D<Boolean> nyttBrett = new SmultringTabell<Boolean>(nyBredde, nyHøyde);
+		IGrid2D<Boolean> nyttBrett = new MyGrid2D<Boolean>(new Torus(nyBredde, nyHøyde));
 		for(int x = 0; x < nyBredde; x++)
 			for(int y = 0; y < nyHøyde; y++)
-				nyttBrett.sett(x, y, Boolean.FALSE);
+				nyttBrett.set(x, y, Boolean.FALSE);
 
 		for(int x = 0; x < Math.min(bredde, nyBredde); x++)
 			for(int y = 0; y < Math.min(høyde, nyHøyde); y++)
-				nyttBrett.sett(x, y, brett.hent(x, y));
+				nyttBrett.set(x, y, brett.get(x, y));
 		bredde = nyBredde;
 		høyde = nyHøyde;
 		brett = nyttBrett;
@@ -188,7 +189,7 @@ public class Life implements IGame {
 
 	@Override
 	public String getIconAt(int x, int y) {
-		if(brett.hent(x, y))
+		if(brett.get(x, y))
 			return alive;
 		else
 			return dead;

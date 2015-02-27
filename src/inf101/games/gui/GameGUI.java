@@ -79,7 +79,7 @@ public class GameGUI extends JPanel implements ActionListener {
 		gameSelection = new JComboBox<String>(gameNames);
 		gameSelection.setSelectedItem(selectedGame.getName());
 
-		timer = new javax.swing.Timer(150, this);  // vekk oss hvert 500 millisekund
+		timer = new javax.swing.Timer(50, this);  // vekk oss hvert 500 millisekund
 
 		JPanel dummyKontrollPanel = new JPanel();
 		dummyKontrollPanel.setLayout(new BorderLayout());

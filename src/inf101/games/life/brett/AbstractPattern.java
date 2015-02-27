@@ -1,7 +1,7 @@
 package inf101.games.life.brett;
 
-import inf101.tabell2d.ITabell2D;
-import inf101.tabell2d.RektangelTabell;
+import inf101.grid.IGrid2D;
+import inf101.grid.MyGrid2D;
 
 /**
  * Superklasse for Life mønster
@@ -11,7 +11,7 @@ import inf101.tabell2d.RektangelTabell;
  */
 public class AbstractPattern implements IPattern {
 
-	private final ITabell2D<Boolean> pattern;
+	private final IGrid2D<Boolean> pattern;
 	private final String name;
 
 	/**
@@ -29,10 +29,10 @@ public class AbstractPattern implements IPattern {
 	AbstractPattern(String[] pattern, String name) {
 		int høyde = pattern.length;
 		int bredde = pattern[0].length();
-		this.pattern = new RektangelTabell<Boolean>(bredde, høyde);
+		this.pattern = new MyGrid2D<Boolean>(bredde, høyde);
 		for(int y = 0; y < høyde; y++) {
 			for(int x = 0; x < bredde; x++) {
-				this.pattern.sett(x, y, pattern[y].charAt(x) != ' ');
+				this.pattern.set(x, y, pattern[y].charAt(x) != ' ');
 			}
 		}
 		this.name = name;
@@ -40,17 +40,17 @@ public class AbstractPattern implements IPattern {
 	
 	@Override
 	public boolean isAlive(int x, int y) {
-		return pattern.hent(x, y);
+		return pattern.get(x, y);
 	}
 
 	@Override
 	public int getWidth() {
-		return pattern.bredde();
+		return pattern.getWidth();
 	}
 
 	@Override
 	public int getHeight() {
-		return pattern.høyde();
+		return pattern.getHeight();
 	}
 
 	@Override

@@ -1,11 +1,12 @@
-package inf101.util;
+package inf101.grid;
 
 /**
  * Interface for a 2-dimensional grid data structure.
  *
  * @param <T> The element type
  */
-public interface IGrid2D<T> {
+
+public interface IGrid2D<T> extends IArea {
 	/**
 	 * Get the element at position (x, y)
 	 * 
@@ -41,5 +42,13 @@ public interface IGrid2D<T> {
 	 * @param val The default value
 	 */
 	void clear(T val);
+	
+	
+	/**
+	 * Make a copy
+	 * 
+	 * @return A fresh copy of the grid, with the same elements
+	 */
+	IGrid2D<T> copy();
 	
 }

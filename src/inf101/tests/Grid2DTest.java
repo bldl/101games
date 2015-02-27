@@ -1,9 +1,9 @@
 package inf101.tests;
 
 import static org.junit.Assert.*;
+import inf101.grid.IGrid2D;
+import inf101.grid.MyGrid2D;
 import inf101.util.IGenerator;
-import inf101.util.IGrid2D;
-import inf101.util.MyGrid2D;
 import inf101.util.generators.Grid2DGenerator;
 import inf101.util.generators.IntGenerator;
 import inf101.util.generators.StringGenerator;

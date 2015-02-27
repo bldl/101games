@@ -5,9 +5,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+import inf101.grid.IGrid2D;
+import inf101.grid.MyGrid2D;
 import inf101.util.IGenerator;
-import inf101.util.IGrid2D;
-import inf101.util.MyGrid2D;
 
 public class Grid2DGenerator<T> implements IGenerator<IGrid2D<T>> {
 	/**
