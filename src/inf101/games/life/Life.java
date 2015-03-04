@@ -55,9 +55,11 @@ public class Life implements IGame {
 						for(int y = 0; y < høyde; y++)
 							brett.set(x, y, Boolean.FALSE);
 
+					// finn midten
 					int xOffset = (bredde - p.getWidth()) / 2;
 					int yOffset = (høyde - p.getHeight()) / 2;
 
+					// kopier mønsteret inn på brettet
 					for(int x = 0; x < p.getWidth(); x++)
 						for(int y = 0; y < p.getHeight(); y++)
 							brett.set(xOffset + x, yOffset + y, p.isAlive(x, y));
@@ -77,7 +79,7 @@ public class Life implements IGame {
 	 * @return 
 	 * 			antall naboer
 	 */
-	public int naboer(int x, int y){
+	public int neighbours(int x, int y){
 		int ant=0;
 		if(brett.get(x-1, y))
 			ant++;
@@ -102,10 +104,11 @@ public class Life implements IGame {
 	 * Metode for neste steg på brettet
 	 * Kalles for hver oppdater
 	 * 
-	 * oppretter nyttBrett siden brett må brukes til sjekk i naboer()
-	 */
+	 * 	 */
 	@Override
 	public void timeStep(){
+		// oppretter nyttBrett siden brett må brukes til sjekk i neighbours()
+
 		IGrid2D<Boolean> nyttBrett = new MyGrid2D<Boolean>(new Torus(bredde, høyde));
 		for(int m=0; m < bredde; m++){
 			for(int n=0; n < høyde; n++){
@@ -114,7 +117,7 @@ public class Life implements IGame {
 		}
 		for(int i=0; i < bredde; i++){
 			for (int j=0; j < høyde; j++){
-				int k=naboer(i,j);
+				int k=neighbours(i,j);
 				if ((k==2 || k==3) && brett.get(i, j))
 					nyttBrett.set(i, j, true);
 				if (k==3 && !(brett.get(i, j)))

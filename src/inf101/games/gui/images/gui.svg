@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="64"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="gui.svg"
+   inkscape:export-filename="/home/anya/git/101games/src/inf101/games/gui/images/step.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5043">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5045" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop5047" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path3854"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path3842"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3830"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5043"
+       id="radialGradient5641"
+       cx="8"
+       cy="56"
+       fx="8"
+       fy="56"
+       r="8"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.313708"
+     inkscape:cx="30.011779"
+     inkscape:cy="23.289706"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1439"
+     inkscape:window-height="922"
+     inkscape:window-x="578"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     fit-margin-top="4"
+     fit-margin-left="4"
+     fit-margin-right="4"
+     fit-margin-bottom="4">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3004"
+       empspacing="4"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       dotted="false"
+       originx="-8px"
+       originy="-352px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-8,-636.36218)">
+    <path
+       style="fill:#000000;stroke:none"
+       d="m 12,664.36218 8,-4 -8,-4 z"
+       id="path3787"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;stroke:none"
+       d="m 28,656.36218 0,8 3,0 0,-8 z"
+       id="path3789"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3795"
+       d="m 28,680.36218 3,-4.08968 -3,-4.08968 z"
+       style="fill:#000000;stroke:none"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#000000;stroke:none"
+       d="M 30.910335,680.36218 34,676.27251 30.910335,672.18282 z"
+       id="path3797"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3799"
+       d="M 33.999813,680.36218 37,676.2725 33.999813,672.18282 z"
+       style="fill:#000000;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801"
+       d="m 12,696.36218 6,-4 -6,-4 z"
+       style="fill:#000000;stroke:none"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#000000;stroke:none"
+       d="m 20,696.36218 0,-8 -2,0 0,8 z"
+       id="path3803"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       style="fill:#000000;stroke:none"
+       d="m 28,696.36218 3,-4.08968 -3,-4.08968 z"
+       id="path3805"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cccc"
+       style="fill:#000000;stroke:none"
+       d="m 12,680.36218 3,-4.08968 -3,-4.08968 z"
+       id="path3811"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path3813"
+       d="M 14.910335,680.36218 18,676.27251 14.910335,672.18282 z"
+       style="fill:#000000;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3817"
+       d="m 33,656.36218 0,8 3,0 0,-8 z"
+       style="fill:#000000;stroke:none" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;marker-end:url(#Arrow1Send);stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path3821"
+       sodipodi:cx="10.5"
+       sodipodi:cy="12.5"
+       sodipodi:rx="3.5"
+       sodipodi:ry="3.5"
+       d="M 14,12.5 A 3.5,3.5 0 1 1 12.860107,9.9154507"
+       transform="translate(5.5,632.36218)"
+       sodipodi:start="0"
+       sodipodi:end="5.4524274"
+       sodipodi:open="true" />
+    <rect
+       style="fill:url(#radialGradient5641);stroke:none;stroke-width:1.50000000000000000;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;opacity:0.01;fill-opacity:1"
+       id="step"
+       width="16"
+       height="16"
+       x="0"
+       y="48"
+       transform="translate(8,636.36218)"
+       inkscape:label="#rect5013" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="normal"
+       transform="translate(16,0)"
+       width="32"
+       height="64"
+       inkscape:label="#use5029" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="fast"
+       transform="translate(0,-16)"
+       width="32"
+       height="64"
+       inkscape:label="#use5031" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="faster"
+       transform="translate(16,-16)"
+       width="32"
+       height="64"
+       inkscape:label="#use5033" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="play"
+       transform="translate(0,-32)"
+       width="32"
+       height="64"
+       inkscape:label="#use5035" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="pause"
+       transform="translate(16,-32)"
+       width="32"
+       height="64"
+       inkscape:label="#use5037" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="new"
+       transform="translate(0,-48)"
+       width="32"
+       height="64"
+       inkscape:label="#use5039" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#step"
+       id="use5041"
+       transform="translate(16,-48)"
+       width="32"
+       height="64" />
+  </g>
+</svg>
